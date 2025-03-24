@@ -33,7 +33,15 @@ SECRET_KEY = 'django-insecure-k1xrn8cki9w5(ea0e4t2c-rn$=_$j-z%nsl+9n6ne!f48kz(3h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
+# settings.py
+ALLOWED_HOSTS = [
+    os.getenv('RENDER_EXTERNAL_HOSTNAME', 'localhost'),  # Automatically uses Render's hostname
+    'doe.onrender.com',  # Your custom domain if you have one on Render
+    'localhost',  # For local development
+    '127.0.0.1',  # For local development
+]
+
 
 AUTH_USER_MODEL = "users.CustomUser" 
 
